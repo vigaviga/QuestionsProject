@@ -19,6 +19,9 @@ namespace QuestionProject.Controllers
         [HttpGet]
         public IActionResult Get(int blogId)
         {
+            //Question 8: What would you change in response of this code?
+            //Answer 8: Blog service can return null. So, I will add a return statement in case blog equals null. 
+            // if (blog == null) return NotFound(blogId);
             try
             {
                 var blog = blogService.GetBlog(blogId);
@@ -35,6 +38,12 @@ namespace QuestionProject.Controllers
         {
             try
             {
+                //Answer 9:
+                //if(ModelState.IsValid)
+                //{
+                //    code comes here
+                //}
+
                 blogService.CreateBlog(blogUrl);
                 return Ok();
             }

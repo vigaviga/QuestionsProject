@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
+using Microsoft.VisualBasic;
 using QuestionProject.Interfaces;
 using QuestionProject.Models;
 
@@ -58,6 +61,22 @@ namespace QuestionProject.Services
             db.SaveChanges();
         }
 
+        //Question 10: How would you implement the algorithm of finding the most viewed post?
+        private void MostViewedPost(Blog blog)
+        {
+            //Answer 10:
+            //Complexity is O(n)
+            //int maxViewPostId = -1;
+            //int maxViewCount = -1;
+
+            //foreach(var p in blog.Posts)
+            //{
+            //    if (p.ViewCount > maxViewCount)
+            //    {
+            //        maxViewPostId = p.PostId;
+            //    }
+            //}
+        }
         //Question 7: Can this method throw an exception? If yes - how would you handle it?
         private static bool IsDefaultValue(PropertyInfo srcProperty, object src)
         {
@@ -78,6 +97,24 @@ namespace QuestionProject.Services
         //if (srcProperty.GetValue(src, null) == null)
         //    return true;
         //var type = srcProperty.GetValue(src, null).GetType();
+
+        //Question 11: How can you modify this method to enhance its performance?
+
+        private void CalculateTarget(Blog target, List<Blog> blogs)
+        {
+            //Answer 11: Move calculation of b outside of loop. Explanation: Its value does not change after each iteration.
+            //var b = target.Posts.FirstOrDefault(a => a.IsNewPost.Equals(true));
+            foreach (var blog in blogs)
+            {
+                var a = blog.Posts.FirstOrDefault(a => a.IsNewPost.Equals(true));
+                var b = target.Posts.FirstOrDefault(a => a.IsNewPost.Equals(true));
+
+                if (a != null && b != null)
+                {
+                    //some work
+                }
+            }
+        }
     }
 }
  
